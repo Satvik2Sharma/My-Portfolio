@@ -23,7 +23,6 @@ export const TechnicalArsenal = () => {
     <Section id="arsenal" className="relative">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div className="space-y-4">
-          <p className="text-mono text-accent">TECHNICAL_ARSENAL // V7.0</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">My <span className="text-accent">Toolstack</span></h2>
           <p className="text-body max-w-xl text-foreground/70 leading-relaxed italic border-l-2 border-accent/20 pl-4 py-1">
             Specialized engineering focused on high-performance systems and 
