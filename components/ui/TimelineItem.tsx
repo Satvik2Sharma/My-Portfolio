@@ -46,7 +46,7 @@ export const TimelineItem = ({
           
           <div className={cn(
             "absolute inset-0 rounded-full flex items-center justify-center border-2 transition-all duration-500",
-            status === "past" ? "bg-accent border-accent text-bg" :
+            status === "past" ? "bg-accent border-accent text-zinc-950" :
             status === "current" ? "bg-bg border-accent text-accent shadow-[0_0_15px_var(--accent)]" :
             "bg-bg border-white/20 text-white/20 border-dashed"
           )}>
