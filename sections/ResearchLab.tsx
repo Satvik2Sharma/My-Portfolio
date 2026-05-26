@@ -58,7 +58,6 @@ export const ResearchLab = () => {
     <Section id="research" className="relative">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div className="space-y-4">
-          <p className="text-mono text-accent">RESEARCH_LAB // V2.5</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Deep <span className="text-accent">Research</span></h2>
           <p className="text-body max-w-xl text-foreground/70 leading-relaxed italic border-l-2 border-accent/20 pl-4 py-1">
             Bridging the gap between theoretical computer science and 
@@ -98,10 +97,7 @@ export const ResearchLab = () => {
         />
       )}
 
-      {/* Side Decorative Labels */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 text-[10px] text-mono text-foreground/20 rotate-90 origin-right tracking-[0.5em] pointer-events-none select-none uppercase">
-        ACADEMIC_INTEGRITY // COGNITIVE_ANALYSIS
-      </div>
+
 
     </Section>
   );
