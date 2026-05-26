@@ -19,6 +19,7 @@ export const HUDPanel = () => {
     setMounted(true);
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
+      if (window.matchMedia("(pointer: coarse)").matches) return;
       const moveX = clientX - window.innerWidth / 2;
       const moveY = clientY - window.innerHeight / 2;
       x.set(moveX);
@@ -41,9 +42,9 @@ export const HUDPanel = () => {
       initial={{ opacity: 0, x: 20, y: -20 }}
       animate={{ opacity: 0.7, x: 0, y: 0 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="hidden lg:block absolute top-10 right-10 z-20"
+      className="block relative w-full md:absolute md:top-10 md:right-10 md:w-auto z-20 mb-8 md:mb-0"
     >
-      <div className="glass p-6 font-mono text-[11px] leading-relaxed border-accent/20 animate-flicker min-w-[280px]">
+      <div className="glass p-4 md:p-6 font-mono text-[10px] md:text-[11px] leading-relaxed border-accent/20 animate-flicker min-w-[280px]">
         <div className="flex items-center gap-2 mb-4 border-b border-accent/10 pb-2">
           <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="text-accent tracking-[0.2em]">SYSTEM_DIAGNOSTICS</span>
