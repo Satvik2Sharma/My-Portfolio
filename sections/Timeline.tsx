@@ -44,7 +44,6 @@ export const Timeline = () => {
     <Section id="journey" className="relative overflow-visible">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 px-4">
         <div className="space-y-4">
-          <p className="text-mono text-accent">CHRONICLE_JOURNEY // V1.0</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Academic <span className="text-accent">Evolution</span></h2>
           <p className="text-body max-w-xl text-foreground/70 leading-relaxed italic border-l-2 border-accent/20 pl-4 py-1">
             Visualizing the timeline of my technical growth and future landmarks.
@@ -52,7 +51,7 @@ export const Timeline = () => {
         </div>
 
         <div className="flex items-center gap-3 p-1 glass bg-white/5 rounded-2xl border-white/5">
-          <div className="p-3 rounded-xl bg-accent text-bg shadow-[0_0_15px_var(--accent)]">
+          <div className="p-3 rounded-xl bg-accent text-zinc-950 shadow-[0_0_15px_var(--accent)]">
             <History size={20} />
           </div>
           <div className="p-3 text-foreground/20">
