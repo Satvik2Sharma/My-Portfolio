@@ -52,8 +52,8 @@ export const TerminalCard = () => {
         </div>
       </div>
 
-      <div className="font-mono text-xs space-y-4 min-h-[160px]">
-        <div className="space-y-1">
+      <div className="font-mono text-xs space-y-4">
+        <div className="space-y-1 h-[100px] overflow-hidden">
           <div className="flex gap-2 text-foreground/40">
             <span className="text-accent">satvik@arsenal:~$</span>
             <span className="text-foreground/80">{text}</span>
