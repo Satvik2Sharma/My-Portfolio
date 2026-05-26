@@ -58,7 +58,6 @@ export const Projects = () => {
     <Section id="projects" className="relative">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div className="space-y-4">
-          <p className="text-mono text-accent">LATEST_WORKS // V1.0</p>
           <h2 className="text-4xl md:text-5xl font-bold">Featured Projects</h2>
           <p className="text-body max-w-xl">
             A selection of high-impact applications focusing on AI 
