@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
+@theme {
+  --color-background: var(--bg);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --max-width-container: 1200px;
+
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-flicker: flicker 3s linear infinite;
+  --animate-radar: radar 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+    }
+    to {
+      box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    }
+  }
+
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+      opacity: 1;
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes radar {
+    75%, 100% {
+      transform: scale(3);
+      opacity: 0;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --bg: #0A0A0A;
+  --foreground: #F5F5F5;
+  --surface: #111111;
+  --accent-hsl: 170 100% 50%;
+  --accent: hsl(var(--accent-hsl));
+  --accent-secondary: #8B5CF6;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(17, 17, 17, 0.6);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--foreground);
+    @apply font-sans antialiased selection:bg-accent/30 selection:text-white;
+  }
+
+  /* Custom Glowing Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+    box-shadow: 0 0 20px var(--accent-secondary);
+  }
+
+  h1 {
+    @apply font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter;
+  }
+
+  h2 {
+    @apply font-heading text-3xl md:text-5xl font-semibold tracking-tight;
+  }
+
+  /* Accessibility: Focus States */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-4 ring-offset-background transition-all duration-300;
+  }
+
+  .text-body {
+    @apply font-sans text-base md:text-lg leading-relaxed text-foreground/80;
+  }
+
+  .text-small {
+    @apply font-sans text-sm text-foreground/60;
+  }
+
+  .text-mono {
+    @apply font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-foreground/40;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 255, 198, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.05);
+  }
+
+  .glow-subtle {
+    box-shadow: 0 0 15px -5px var(--accent);
+  }
+
+  .container {
+    max-width: var(--max-width-container);
+    @apply mx-auto px-6 md:px-12;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent-hsl) / 0.2);
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent-hsl) / 0.5);
 }
