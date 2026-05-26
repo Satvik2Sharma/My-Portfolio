@@ -119,7 +119,6 @@ export const FeaturedProjects = () => {
 
       <div className="space-y-16">
         <div className="space-y-4 max-w-2xl">
-          <p className="text-mono text-accent">FLAGSHIP_COLLECTIONS // V4.0</p>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tighter">Featured <span className="text-accent">Prototypes</span></h2>
           <p className="text-body text-xl">
              High-precision engineering meeting specialized AI use-cases. 
