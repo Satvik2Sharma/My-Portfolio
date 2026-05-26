@@ -25,7 +25,9 @@ export const Hero = () => {
 
   return (
     <Section className="relative min-h-[90vh] flex items-center pt-24 overflow-visible">
-      <HUDPanel />
+      <div className="hidden md:block">
+        <HUDPanel />
+      </div>
       
       <div className="max-w-4xl relative z-10">
         <motion.div
@@ -39,7 +41,7 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-mono text-accent"
+              className="text-mono text-accent text-lg md:text-xl font-medium tracking-wide"
             >
               Hi, I&apos;m Satvik Sharma
             </motion.p>
@@ -72,6 +74,12 @@ export const Hero = () => {
             I build high-performance applications and solve complex 
             algorithmic challenges while pursuing my engineering degree.
           </motion.p>
+
+          <div className="md:hidden">
+            <HUDPanel />
+          </div>
+
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
