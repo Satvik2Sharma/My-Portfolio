@@ -53,9 +53,7 @@ export const Footer = () => {
               />
             </motion.pre>
             
-            <div className="mt-8 text-[9px] text-mono text-accent animate-pulse tracking-[0.4em] uppercase">
-                SATVIK_SHARMA // V1.0_PROTOTYPE_STABLE
-            </div>
+
         </div>
       </div>
     </footer>
