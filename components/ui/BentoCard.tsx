@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Play, Activity, Target, Users, Zap, Binary, Network } from "lucide-react";
+import { Play, Activity, Target, Users, Zap, Binary, Network, Code2, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
@@ -22,6 +22,8 @@ interface BentoCardProps {
   architectureContent: React.ReactNode;
   thinkingContent: React.ReactNode;
   isFlagship?: boolean;
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const BentoCard = ({
@@ -33,8 +35,11 @@ export const BentoCard = ({
   architectureContent,
   thinkingContent,
   isFlagship = false,
+  githubUrl,
+  liveUrl,
 }: BentoCardProps) => {
   const [modalType, setModalType] = useState<"architecture" | "thinking" | null>(null);
+  const isVideo = videoSrc.endsWith(".mp4") || videoSrc.endsWith(".webm");
 
   return (
     <>
@@ -46,15 +51,23 @@ export const BentoCard = ({
       >
         {/* Video Background/Preview */}
         <div className="relative aspect-video lg:aspect-auto lg:h-[300px] overflow-hidden bg-surface">
-          <video
-            src={videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
-          />
+          {isVideo ? (
+            <video
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+            />
+          ) : (
+            <img
+              src={videoSrc}
+              alt={title}
+              className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/20 to-transparent" />
           
           {/* Metrics Panel */}
@@ -101,6 +114,28 @@ export const BentoCard = ({
               <Binary size={14} className="mr-2 text-accent" />
               View Thinking
             </Button>
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Button 
+                   variant="secondary" 
+                   className="rounded-full px-6 bg-white/5 border-white/5 hover:border-accent/20"
+                >
+                  <Code2 size={14} className="mr-2 text-accent" />
+                  Code
+                </Button>
+              </a>
+            )}
+            {liveUrl && (
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <Button 
+                   variant="secondary" 
+                   className="rounded-full px-6 bg-white/5 border-white/5 hover:border-accent/20"
+                >
+                  <ExternalLink size={14} className="mr-2 text-accent" />
+                  Live Demo
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>

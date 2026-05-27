@@ -3,39 +3,52 @@
 import { Section } from "@/components/Section";
 import { TimelineItem } from "@/components/ui/TimelineItem";
 import { Milestone, Flag, Rocket, History } from "lucide-react";
+import { motion } from "framer-motion";
 
 const JOURNEY = [
   {
     date: "AUG 2024",
     status: "past" as const,
-    title: "Commenced B.Tech in CSE @ COER",
-    description: "Started my academic journey in Computer Science and Engineering, focusing on building a strong foundation in high-performance computing and algorithms.",
+    title: "Commenced B.Tech in CSE @ COER University",
+    description: "Started B.Tech in Computer Science & Engineering at COER University.",
   },
   {
     date: "DEC 2024",
     status: "past" as const,
-    title: "Built Sehpaathi AI V4.1",
-    description: "Successfully launched the flagship EdTech platform with accuracy-based NLP diagnostics and personalized study plan generation for fellow students.",
+    title: "Shipped Sehpaathi AI",
+    description: "Built and launched Sehpaathi AI — a full-stack student performance and learning gap analysis platform.",
   },
   {
-    date: "MAR 2025",
+    date: "AUG 2025",
+    status: "past" as const,
+    title: "2nd Place @ IIT Roorkee AI Hackathon",
+    description: "Won 2nd Place at the prestigious IIT Roorkee AI & GenAI Hackathon.",
+  },
+  {
+    date: "NOV 2025",
+    status: "past" as const,
+    title: "Oracle OCI AI Foundations Certified",
+    description: "Earned Oracle Cloud Infrastructure — AI Foundations Associate Certification with an 87% score.",
+  },
+  {
+    date: "APR 2026",
+    status: "past" as const,
+    title: "Research Accepted @ ICSSCS 2026",
+    description: "Research paper on 'Edge-Optimized YOLOv8 Surveillance Systems' accepted for publication and presentation.",
+  },
+  {
+    date: "MAY 2026",
     status: "current" as const,
-    title: "Healthcare Diagnostic Engine",
-    description: "Currently engineering a real-time AI diagnostic engine (Neuro-Chat) with weighted confidence scoring and a minimalist conversational UI.",
+    title: "Software Intern @ Cognifyz Technologies",
+    description: "Software Development Intern at Cognifyz Technologies Pvt. Ltd., working on modern web experiences.",
+    nextAction: "INTERNSHIP_MILESTONES",
   },
   {
-    date: "JUL 2025",
+    date: "FUTURE",
     status: "future" as const,
-    title: "Internship @ Tier-1 Tech",
-    description: "Aiming for a summer internship at a leading technology firm to apply my system architecture and AI skills to large-scale production environments.",
-    nextAction: "PREP_LEET_GOAL_200",
-  },
-  {
-    date: "FEB 2026",
-    status: "future" as const,
-    title: "SDE-1 Roles & GATE 2028 Prep",
-    description: "Beginning intensive preparation for GATE 2028 while targetting high-performance SDE-1 roles in specialized engineering domains.",
-    nextAction: "GATE_PIPELINE_INIT",
+    title: "GATE 2028 Preparation",
+    description: "Intensive systems and core CS mastery targeting the Graduate Aptitude Test in Engineering 2028.",
+    nextAction: "GATE_PREP_PIPELINE",
   },
 ];
 
@@ -73,6 +86,17 @@ export const Timeline = () => {
             />
           ))}
         </div>
+
+        {/* Subtle CTA at the end of Timeline */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-16 p-6 rounded-2xl bg-accent/5 border border-accent/10 text-center font-mono text-xs text-accent"
+        >
+          INTERESTED IN WORKING TOGETHER? I&apos;M OPEN TO INTERNSHIPS, COLLABORATIONS, AND RESEARCH PROJECTS.
+        </motion.div>
         
         {/* Floating marker label */}
         <div className="absolute top-0 -left-20 opacity-5 pointer-events-none select-none hidden lg:block">

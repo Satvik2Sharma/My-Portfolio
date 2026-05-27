@@ -7,48 +7,68 @@ import { Cpu, Layout, Database, Sparkles, Code2, Globe } from "lucide-react";
 
 const PROJECTS = [
   {
-    title: "Sehpaathi AI V4",
-    description: "An advanced EdTech platform with accuracy-based NLP diagnostics and personalized study plan generation.",
+    title: "Sehpaathi AI",
+    description: "AI-powered student performance analysis platform designed to identify learning gaps using semantic similarity and logic-based scoring.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
     techStack: [
-      { name: "PostgreSQL", icon: <Database size={14} />, category: "Backend" as const },
-      { name: "Artificial Intelligence", icon: <Cpu size={14} />, category: "AI" as const },
       { name: "Next.js", icon: <Layout size={14} />, category: "UI" as const },
-    ],
-    timeline: [
-      { label: "Data_Ingest", active: true },
-      { label: "NLP_Engine", active: true },
-      { label: "UI_Refinement", active: false }
-    ]
-  },
-  {
-    title: "Neuro-Chat Healthcare",
-    description: "Real-time AI diagnostic engine with weighted confidence scoring and minimalist conversational UI.",
-    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-medical-consultation-on-a-digital-tablet-40432-large.mp4",
-    techStack: [
       { name: "FastAPI", icon: <Database size={14} />, category: "Backend" as const },
-      { name: "TensorFlow", icon: <Cpu size={14} />, category: "AI" as const },
-      { name: "React", icon: <Layout size={14} />, category: "UI" as const },
+      { name: "NLP Diagnostic", icon: <Cpu size={14} />, category: "AI" as const },
     ],
     timeline: [
       { label: "Diagnostic_Core", active: true },
-      { label: "Realtime_Sync", active: true },
-      { label: "Clinical_Trial", active: false }
+      { label: "Similarity_Scoring", active: true },
+      { label: "Feedback_Workflows", active: true }
     ]
   },
   {
-    title: "Nebula Dashboard",
-    description: "High-performance data visualization suite for complex cloud infrastructure monitoring.",
+    title: "Laptop Price Predictor",
+    description: "Machine learning web application for predicting laptop prices using engineered hardware and display features.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
     techStack: [
-      { name: "D3.js", icon: <Layout size={14} />, category: "UI" as const },
-      { name: "AWS", icon: <Database size={14} />, category: "Backend" as const },
-      { name: "GraphQL", icon: <Code2 size={14} />, category: "Backend" as const },
+      { name: "Python", icon: <Code2 size={14} />, category: "Backend" as const },
+      { name: "Flask", icon: <Database size={14} />, category: "Backend" as const },
+      { name: "XGBoost", icon: <Cpu size={14} />, category: "AI" as const },
+      { name: "Scikit-Learn", icon: <Cpu size={14} />, category: "AI" as const },
     ],
     timeline: [
-      { label: "Metric_Ingest", active: true },
-      { label: "Visual_Render", active: true },
-      { label: "Cloud_Sync", active: true }
+      { label: "Data_Extraction", active: true },
+      { label: "Feature_Pipeline", active: true },
+      { label: "XGBoost_Regressor", active: true }
+    ]
+  },
+  {
+    title: "Agro-Guardian",
+    description: "Automated crop protection system using ESP32, ultrasonic sensors, and PIR modules for animal threat detection.",
+    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
+    techStack: [
+      { name: "ESP32", icon: <Cpu size={14} />, category: "Hardware" as const },
+      { name: "C++", icon: <Code2 size={14} />, category: "Backend" as const },
+      { name: "IoT Sensors", icon: <Database size={14} />, category: "Hardware" as const },
+    ],
+    timeline: [
+      { label: "Sensor_Ingest", active: true },
+      { label: "Threat_Detection", active: true },
+      { label: "Relay_Activation", active: true }
+    ]
+  },
+  {
+    title: "OSPOT",
+    description: "Console-based diagnostics tool for monitoring CPU, RAM, and disk usage in real time.",
+    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
+    techStack: [
+      { name: "C++", icon: <Code2 size={14} />, category: "Backend" as const },
+      { name: "OS APIs", icon: <Cpu size={14} />, category: "Backend" as const },
+      { name: "File Handling", icon: <Database size={14} />, category: "Backend" as const },
+    ],
+    timeline: [
+      { label: "OS_API_Binding", active: true },
+      { label: "Metric_Sampling", active: true },
+      { label: "Realtime_Console", active: true }
     ]
   },
 ];

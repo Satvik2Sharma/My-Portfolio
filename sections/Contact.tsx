@@ -3,7 +3,7 @@
 import { Section } from "@/components/Section";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { Button } from "@/components/ui/Button";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
@@ -45,8 +45,9 @@ const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
 
 const SOCIALS = [
   { name: "Github", href: "https://github.com/Satvik2Sharma", icon: <GithubIcon size={24} /> },
-  { name: "Linkedin", href: "https://www.linkedin.com/in/satvik2sharma", icon: <LinkedinIcon size={24} /> },
+  { name: "Linkedin", href: "https://linkedin.com/in/satviksharma", icon: <LinkedinIcon size={24} /> },
   { name: "Email", href: "mailto:satviksharma1706@gmail.com", icon: <Mail size={24} /> },
+  { name: "Phone", href: "tel:+917017376181", icon: <Phone size={24} /> },
 ];
 
 export const Contact = () => {
@@ -61,9 +62,12 @@ export const Contact = () => {
       >
         <div className="space-y-4">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
-            Let&apos;s build something <br />
-            <span className="text-accent underline decoration-accent/20">meaningful.</span>
+            Let&apos;s Build Something <br />
+            <span className="text-accent underline decoration-accent/20">Meaningful.</span>
           </h2>
+          <p className="text-body max-w-2xl mx-auto text-foreground/60 leading-relaxed font-sans text-lg">
+            I&apos;m actively exploring internship opportunities, research collaborations, and impactful engineering projects.
+          </p>
         </div>
 
         <div className="flex items-center justify-center gap-8">
@@ -85,11 +89,18 @@ export const Contact = () => {
           ))}
         </div>
 
-        <div className="pt-8">
-          <Button size="lg" className="h-16 px-12 text-lg rounded-full group">
-            START_COLLABORATION
-            <ArrowUpRight size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </Button>
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+          <a href="mailto:satviksharma1706@gmail.com">
+            <Button size="lg" className="h-16 px-12 text-lg rounded-full group">
+              START_COLLABORATION
+              <ArrowUpRight size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Button>
+          </a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Button variant="secondary" size="lg" className="h-16 px-12 text-lg rounded-full border border-white/10 hover:border-accent/40 bg-white/5 transition-colors">
+              VIEW_RESUME
+            </Button>
+          </a>
         </div>
       </motion.div>
 

@@ -82,19 +82,19 @@ export const TerminalCard = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/5 opacity-60">
           <div className="space-y-1">
             <p className="text-[10px] text-accent/60">LANGUAGE</p>
-            <p className="text-white">C++ / Java</p>
+            <p className="text-white">C++ / Python / Java</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] text-accent/60">OS_KERNELS</p>
-            <p className="text-white">Ubuntu / Arch</p>
+            <p className="text-[10px] text-accent/60">ENVIRONMENT</p>
+            <p className="text-white">Linux / Git</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] text-accent/60">VIRTUAL_MACHINES</p>
-            <p className="text-white">Docker / K8s</p>
+            <p className="text-[10px] text-accent/60">CS_THEORY</p>
+            <p className="text-white">OS / OOPs / DSA</p>
           </div>
           <div className="space-y-1">
-            <p className="text-[10px] text-accent/60">SECURITY</p>
-            <p className="text-white">LDAP / SSH</p>
+            <p className="text-[10px] text-accent/60">DATABASE</p>
+            <p className="text-white">SQL / DBMS</p>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between w-full opacity-40 text-[10px] text-mono tracking-widest uppercase gap-4">
           <p>© 2026 // ALL_RIGHTS_RESERVED</p>
           <div className="h-px w-24 bg-white/10 hidden md:block" />
-          <p>ENGINEERED_WITH_NEXT_JS_15</p>
+          <p className="normal-case text-center">Focused on continuous learning, deep work, and building technology that matters.</p>
           <div className="h-px w-24 bg-white/10 hidden md:block" />
           <p>LOCAL_TIME // GMT+5:30</p>
         </div>

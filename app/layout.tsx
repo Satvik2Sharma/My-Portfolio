@@ -22,8 +22,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Satvik Sharma | Portfolio",
-  description: "Advanced CSE Academic Portfolio focusing on AI, System Architecture, and Experience Design.",
+  title: "Satvik Sharma | AI & Software Engineer",
+  description: "Aspiring Software and AI Engineer focused on full-stack development, edge AI systems, and performance-oriented applications.",
+  openGraph: {
+    title: "Satvik Sharma | AI & Software Engineer",
+    description: "Aspiring Software and AI Engineer focused on full-stack development, edge AI systems, and performance-oriented applications.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

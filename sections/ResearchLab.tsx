@@ -13,40 +13,22 @@ import { FlaskConical, Brain, Network, Microchip, Atom } from "lucide-react";
 
 const RESEARCH_PAPERS = [
   {
-    title: "Augmented Reality in Neurosurgery: A Meta-Analysis",
-    abstract: "A comprehensive investigation into the efficacy of AR-guided instrumentation in complex spinal procedures, focusing on accuracy gains and reduced operative time.",
+    title: "Edge-Optimized YOLOv8 Surveillance Systems",
+    abstract: "Research focused on edge-optimized computer vision surveillance pipelines using YOLOv8 for efficient real-time inference.",
     contributions: [
-      "Developed a novel evaluation framework for haptic feedback loops.",
-      "Identified a 23% increase in placement precision under simulated conditions.",
-      "Proposed a unified standard for metadata structures in surgical AR."
+      "Accepted among 101 papers from 2000+ submissions (ICSSCS 2026).",
+      "Focused on lightweight deployment efficiency.",
+      "Performance-oriented AI inference pipeline."
     ],
-    tools: ["PyTorch", "OpenCV", "Unity3D", "Hololens 2"],
-    citation: "Sharma, S. (2025). AR in Neurosurgery: Precision Analysis. [Research Paper Preprint].",
-    bibtex: "@article{sharma2025ar, title={AR in Neurosurgery}, author={Satvik Sharma}, journal={Preprint}, year={2025}}",
-    file: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    tools: ["YOLOv8", "Computer Vision", "Edge AI", "Python", "OpenCV"],
+    citation: "Sharma, S. (2026). Edge-Optimized YOLOv8 Surveillance Systems. ICSSCS 2026.",
+    bibtex: "@inproceedings{sharma2026edge,\n  title={Edge-Optimized YOLOv8 Surveillance Systems},\n  author={Sharma, Satvik},\n  booktitle={Proceedings of the International Conference on Smart & Sustainable Computing (ICSSCS 2026)},\n  year={2026}\n}",
+    file: "/edge-yolo-surveillance.pdf",
     sections: [
       { label: "Abstract", page: 1 },
       { label: "Methodology", page: 1 },
-      { label: "Analysis", page: 1 },
+      { label: "Results", page: 1 },
       { label: "Conclusion", page: 1 }
-    ]
-  },
-  {
-    title: "Federated Learning for Private Health Diagnostics",
-    abstract: "Exploring the trade-off between model utility and data privacy in distributed healthcare networks using differential privacy and secure aggregation.",
-    contributions: [
-      "Optimized communication overhead for low-bandwidth medical devices.",
-      "Implemented a secure multi-party computation layer using RSA encryption.",
-      "Evaluated model drift in non-IID healthcare dataset distributions."
-    ],
-    tools: ["TensorFlow Federated", "Python", "Kubernetes", "Redis"],
-    citation: "Sharma, S. (2024). FL for Private Health Diagnostics. [Internal Research Lab].",
-    bibtex: "@article{sharma2024fl, title={FL for Private Health}, author={Satvik Sharma}, journal={Internal}, year={2024}}",
-    file: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-    sections: [
-      { label: "Abstract", page: 1 },
-      { label: "Core_Loop", page: 1 },
-      { label: "Evaluation", page: 1 }
     ]
   }
 ];
@@ -58,10 +40,9 @@ export const ResearchLab = () => {
     <Section id="research" className="relative">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Deep <span className="text-accent">Research</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Research &amp; <span className="text-accent">Publications</span></h2>
           <p className="text-body max-w-xl text-foreground/70 leading-relaxed italic border-l-2 border-accent/20 pl-4 py-1">
-            Bridging the gap between theoretical computer science and 
-            real-world specialized applications.
+            Exploring practical AI systems, edge intelligence, and performance-oriented computing through research-driven engineering.
           </p>
         </div>
 

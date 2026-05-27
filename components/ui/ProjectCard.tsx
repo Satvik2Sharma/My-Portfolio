@@ -22,6 +22,8 @@ interface ProjectCardProps {
   videoSrc: string;
   techStack: { name: string; icon?: React.ReactNode; category?: string }[];
   timeline: { label: string; active: boolean }[];
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const ProjectCard = ({ 
@@ -29,8 +31,11 @@ export const ProjectCard = ({
   description, 
   videoSrc, 
   techStack,
-  timeline = []
+  timeline = [],
+  githubUrl,
+  liveUrl
 }: ProjectCardProps) => {
+  const isVideo = videoSrc.endsWith(".mp4") || videoSrc.endsWith(".webm");
   const videoRef = useRef<HTMLVideoElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -65,15 +70,23 @@ export const ProjectCard = ({
         <Card className="overflow-hidden p-0 border-white/5 bg-surface/40 hover:border-accent/30 transition-all duration-500">
           {/* Video Preview Container */}
           <div className="relative aspect-video overflow-hidden">
-            <video
-              ref={videoRef}
-              src={videoSrc}
-              muted
-              loop
-              playsInline
-              preload="none"
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-            />
+            {isVideo ? (
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+              />
+            ) : (
+              <img
+                src={videoSrc}
+                alt={title}
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-60" />
             
             <div className="absolute bottom-4 left-4 flex gap-2">
@@ -138,12 +151,20 @@ export const ProjectCard = ({
             >
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <div className="lg:col-span-2 relative aspect-[16/10] bg-black">
-                   <video
-                    src={videoSrc}
-                    autoPlay
-                    controls
-                    className="w-full h-full object-contain"
-                  />
+                  {isVideo ? (
+                    <video
+                      src={videoSrc}
+                      autoPlay
+                      controls
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <img
+                      src={videoSrc}
+                      alt={title}
+                      className="w-full h-full object-contain mx-auto"
+                    />
+                  )}
                 </div>
                 
                 <div className="p-8 flex flex-col gap-6">
@@ -176,10 +197,19 @@ export const ProjectCard = ({
                   </div>
 
                   <div className="mt-auto flex gap-3">
-                    <Button className="flex-grow">VIEW_LIVE</Button>
-                    <Button variant="secondary" className="p-3">
-                      <Code2 size={20} />
-                    </Button>
+                    {liveUrl && (
+                      <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex-grow">
+                        <Button className="w-full">VIEW_LIVE</Button>
+                      </a>
+                    )}
+                    {githubUrl && (
+                      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className={cn(!liveUrl && "flex-grow")}>
+                        <Button variant="secondary" className={cn("p-3", !liveUrl && "w-full flex gap-2 justify-center")}>
+                          <Code2 size={20} />
+                          {!liveUrl && <span className="text-xs font-mono">VIEW_CODE</span>}
+                        </Button>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

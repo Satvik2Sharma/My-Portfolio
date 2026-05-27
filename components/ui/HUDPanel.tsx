@@ -3,7 +3,13 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export const HUDPanel = () => {
+import { cn } from "@/lib/utils";
+
+interface HUDPanelProps {
+  className?: string;
+}
+
+export const HUDPanel = ({ className }: HUDPanelProps) => {
   const [mounted, setMounted] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -42,7 +48,7 @@ export const HUDPanel = () => {
       initial={{ opacity: 0, x: 20, y: -20 }}
       animate={{ opacity: 0.7, x: 0, y: 0 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className="block relative w-full md:absolute md:top-10 md:right-10 md:w-auto z-20 mb-8 md:mb-0"
+      className={cn("block relative w-full z-20", className)}
     >
       <div className="glass p-4 md:p-6 font-mono text-[10px] md:text-[11px] leading-relaxed border-accent/20 animate-flicker min-w-[280px]">
         <div className="flex items-center gap-2 mb-4 border-b border-accent/10 pb-2">
@@ -58,24 +64,24 @@ export const HUDPanel = () => {
           </p>
           <p>
             <span className="text-accent/50 mr-2">&gt;</span>
-            MODE: <span className="text-white">LEARNING</span>
+            MODE: <span className="text-white">DEVELOPMENT // INTERNSHIP_PREP</span>
           </p>
           <p>
             <span className="text-accent/50 mr-2">&gt;</span>
-            ROLE: CSE @ COER | 2nd Semester
+            ROLE: CSE Undergrad @ COER University
           </p>
           <p>
             <span className="text-accent/50 mr-2">&gt;</span>
-            FOCUS: DSA + GATE 2028
+            FOCUS: AI/ML + Edge Computing + GATE 2028
           </p>
           <p>
             <span className="text-accent/50 mr-2">&gt;</span>
-            READING: Atomic Habits
+            READING: Engineering Papers // Deep Work
           </p>
         </div>
 
         <div className="mt-6 pt-2 border-t border-accent/10 flex justify-between items-center opacity-40">
-          <span>LATENCY: 24MS</span>
+          <span>SYSTEM: ACTIVE</span>
           <span>LOC: 29.86N / 77.89E</span>
         </div>
       </div>

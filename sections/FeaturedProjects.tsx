@@ -6,14 +6,15 @@ import { Zap, Target, Users, Layout, Brain, Server, Database } from "lucide-reac
 
 const FLAGSHIP_PROJECTS = [
   {
-    title: "Sehpaathi AI V4.1",
+    title: "Sehpaathi AI",
     subtitle: "AI_EDTECH_PLATFORM // 01",
-    description: "An intelligent learning companion that transforms student performance data into actionable growth strategies using NLP diagnostics and accuracy-based scoring.",
+    description: "AI-powered student performance analysis platform designed to identify learning gaps using semantic similarity and logic-based scoring.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
     metrics: [
-      { label: "Latency", value: "< 45ms", icon: <Zap size={14} /> },
-      { label: "Accuracy", value: "98.2%", icon: <Target size={14} /> },
-      { label: "Users", value: "1.2k+", icon: <Users size={14} /> },
+      { label: "NLP Engine", value: "Semantic", icon: <Brain size={14} /> },
+      { label: "Frontend", value: "Next.js", icon: <Layout size={14} /> },
+      { label: "Backend", value: "FastAPI", icon: <Server size={14} /> },
     ],
     architectureContent: (
       <div className="space-y-8">
@@ -32,24 +33,22 @@ const FLAGSHIP_PROJECTS = [
             <div className="md:rotate-0 rotate-90 text-accent/20 opacity-40">➔</div>
             <div className="flex flex-col items-center gap-2 p-4 glass rounded-xl border-accent/20 w-32 text-center">
               <Database className="text-accent" />
-              POSTGRES + REDIS
+              SQL DATABASE
             </div>
           </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <h4 className="text-lg font-bold">The Core Engine</h4>
+            <h4 className="text-lg font-bold">Semantic Gap Analysis</h4>
             <p className="text-foreground/60 leading-relaxed">
-              Implemented a weighted confidence scoring algorithm that merges NLP similarity 
-              and hard metrics. Uses Redis for caching frequently accessed student analytics.
+              Utilizes TF-IDF vectorization and cosine similarity to map student test responses against expected logical checkpoints, pinpointing specific conceptual blindspots.
             </p>
           </div>
           <div className="space-y-4">
-            <h4 className="text-lg font-bold">Dynamic Generation</h4>
+            <h4 className="text-lg font-bold">Adaptive Feedback</h4>
             <p className="text-foreground/60 leading-relaxed">
-              Personalized 7-day study plans are generated using a heuristic-based 
-              scheduler that adapts to the student&apos;s "Grip Score" in real-time.
+              Translates logic-based similarity scores into personalized revision workflows, providing students with target revision materials and focused practice items.
             </p>
           </div>
         </div>
@@ -60,50 +59,93 @@ const FLAGSHIP_PROJECTS = [
         <div className="space-y-2">
           <h4 className="text-accent font-mono text-sm">PROBLEM_SPACE</h4>
           <p className="text-lg text-foreground/80">
-            Education analytics are often descriptive, not prescriptive. Students know they failed, 
-            but not *how* to improve specifically based on their cognitive gaps.
+            Descriptive test scoring identifies *what* questions a student missed, but struggles to identify the underlying cognitive or conceptual gaps that caused the error.
           </p>
         </div>
         <div className="space-y-2">
           <h4 className="text-accent font-mono text-sm">APPROACH</h4>
           <p className="text-foreground/60">
-            I moved away from standard LLMs for the diagnostic layer to a customized 
-            NLP pipeline that uses TF-IDF and Cosine Similarity for precise gap analysis 
-            at zero latency. This ensured a "snappy" dashboard experience.
+            Implemented a semantic-similarity analyzer that parses student response logic, comparing it with reference answers. This offers fine-grained diagnostics without the compute overhead and token cost of raw LLM prompting.
           </p>
         </div>
         <div className="space-y-2">
-          <h4 className="text-accent font-mono text-sm">ALTERNATIVES</h4>
+          <h4 className="text-accent font-mono text-sm">DESIGN DECISIONS</h4>
           <p className="text-foreground/60">
-            Considered using OpenAI Completions for everything, but rejected it due to 
-            high token costs and unpredictable latency for every diagnostic check.
+            Chose FastAPI for the similarity scoring engine to guarantee sub-50ms execution times, keeping the main user interface responsive and recruiter-friendly during demonstrations.
           </p>
         </div>
       </div>
     ),
   },
   {
-    title: "NutriSnap AI",
-    subtitle: "HEALTH_ANALYTICS // 02",
-    description: "Computer vision platform for automated nutritional analysis from food images, featuring real-time macro-nutrient tracking and caloric prediction.",
-    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-medical-consultation-on-a-digital-tablet-40432-large.mp4",
+    title: "Laptop Price Predictor",
+    subtitle: "MACHINE_LEARNING // 02",
+    description: "Machine learning web application for predicting laptop prices using engineered hardware and display features.",
+    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
+    githubUrl: "https://github.com/Satvik2Sharma",
     metrics: [
-      { label: "Recognition", value: "94%", icon: <Zap size={14} /> },
-      { label: "Inference", value: "210ms", icon: <Target size={14} /> },
-      { label: "Database", value: "10k+", icon: <Users size={14} /> },
+      { label: "R² Accuracy", value: "0.8913", icon: <Target size={14} /> },
+      { label: "Dataset Size", value: "1.3k Recs", icon: <Database size={14} /> },
+      { label: "Model", value: "XGBoost", icon: <Zap size={14} /> },
     ],
     architectureContent: (
-      <div className="p-8 text-center text-foreground/40 font-mono italic">
-        [ SYSTEM_DIAGRAM_V2.0_LOAD_PENDING ]
+      <div className="space-y-8">
+        <div className="p-6 rounded-2xl bg-accent/5 border border-accent/10">
+          <h4 className="text-accent text-mono text-sm mb-4">DATA_PIPELINE</h4>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-8 px-4 font-mono text-xs">
+            <div className="flex flex-col items-center gap-2 p-4 glass rounded-xl border-accent/20 w-32 text-center">
+              <Database className="text-accent" />
+              RAW DATASET
+            </div>
+            <div className="md:rotate-0 rotate-90 text-accent/20 opacity-40">➔</div>
+            <div className="flex flex-col items-center gap-2 p-6 glass rounded-full border-accent/20 w-40 text-center animate-pulse">
+              <Zap className="text-accent" />
+              FEATURE ENG
+            </div>
+            <div className="md:rotate-0 rotate-90 text-accent/20 opacity-40">➔</div>
+            <div className="flex flex-col items-center gap-2 p-4 glass rounded-xl border-accent/20 w-32 text-center">
+              <Server className="text-accent" />
+              XGB REGRESSOR
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold">Feature Engineering</h4>
+            <p className="text-foreground/60 leading-relaxed">
+              Extracts rich indicators from unstructured specs, including Pixel Density (PPI), IPS display, touchscreen capability, and storage categories (SSD/HDD split).
+            </p>
+          </div>
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold">Prediction Query Vector</h4>
+            <p className="text-foreground/60 leading-relaxed">
+              Constructs a clean 45-feature query vector dynamically on Flask API requests to run inferences with minimal overhead and reliable prediction accuracy.
+            </p>
+          </div>
+        </div>
       </div>
     ),
     thinkingContent: (
-      <div className="space-y-4">
-        <p className="text-lg text-foreground/80">Solving mass-market nutrition tracking friction...</p>
-        <p className="text-foreground/60">
-          The goal was to eliminate manual entry. We used YOLOv8 for real-time 
-          object detection combined with a custom Nutrition API mapping.
-        </p>
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <h4 className="text-accent font-mono text-sm">PROBLEM_SPACE</h4>
+          <p className="text-lg text-foreground/80">
+            Raw hardware specifications (e.g., CPU brand, storage size, RAM size, display resolution) do not scale linearly with pricing due to complex manufacturer configurations.
+          </p>
+        </div>
+        <div className="space-y-2">
+          <h4 className="text-accent font-mono text-sm">APPROACH</h4>
+          <p className="text-foreground/60">
+            Focused heavily on text processing and extraction pipeline to feed structured numerical features (like screen resolution translated to PPI) into regression models rather than raw categorical values.
+          </p>
+        </div>
+        <div className="space-y-2">
+          <h4 className="text-accent font-mono text-sm">MODEL SELECTION</h4>
+          <p className="text-foreground/60">
+            Trained multiple models including Linear Regression, Decision Trees, and Random Forests. An XGBoost Regressor achieved the highest testing performance with an R² score of 0.8913.
+          </p>
+        </div>
       </div>
     ),
   },
