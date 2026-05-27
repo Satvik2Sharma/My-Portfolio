@@ -44,8 +44,9 @@ export const Hero = () => {
               Hi, I&apos;m Satvik Sharma
             </motion.p>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tighter">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tighter">
               Building{" "}
+              <br className="lg:hidden" />
               <div className="h-[1.2em] relative overflow-hidden inline-block align-top">
                 <AnimatePresence mode="wait">
                   <motion.span
