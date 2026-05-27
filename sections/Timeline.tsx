@@ -44,7 +44,7 @@ const JOURNEY = [
     nextAction: "INTERNSHIP_MILESTONES",
   },
   {
-    date: "FUTURE",
+    date: "2028 and 2029",
     status: "future" as const,
     title: "GATE 2028 Preparation",
     description: "Intensive core CS Subjects Theory mastery as the subject comes in the semester courses and Previous Year Questions(PYQs) solving, targeting the Graduate Aptitude Test in Engineering 2028.",
