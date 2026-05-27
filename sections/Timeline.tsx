@@ -7,28 +7,28 @@ import { motion } from "framer-motion";
 
 const JOURNEY = [
   {
-    date: "AUG 2024",
+    date: "AUG 2025",
     status: "past" as const,
     title: "Commenced B.Tech in CSE @ COER University",
     description: "Started B.Tech in Computer Science & Engineering at COER University.",
   },
   {
-    date: "DEC 2024",
-    status: "past" as const,
-    title: "Shipped Sehpaathi AI",
-    description: "Built and launched Sehpaathi AI — a full-stack student performance and learning gap analysis platform.",
-  },
-  {
     date: "AUG 2025",
     status: "past" as const,
     title: "2nd Place @ IIT Roorkee AI Hackathon",
-    description: "Won 2nd Place at the prestigious IIT Roorkee AI & GenAI Hackathon.",
+    description: "Won 2nd Place at the IIT Roorkee AI & GenAI Hackathon Associated with the Workshop.",
   },
   {
     date: "NOV 2025",
     status: "past" as const,
     title: "Oracle OCI AI Foundations Certified",
     description: "Earned Oracle Cloud Infrastructure — AI Foundations Associate Certification with an 87% score.",
+  },
+  {
+    date: "FEB 2026",
+    status: "past" as const,
+    title: "Shipped Sehpaathi AI",
+    description: "Built and launched Sehpaathi AI — a full-stack student performance and learning gap analysis platform.",
   },
   {
     date: "APR 2026",
@@ -47,7 +47,7 @@ const JOURNEY = [
     date: "FUTURE",
     status: "future" as const,
     title: "GATE 2028 Preparation",
-    description: "Intensive systems and core CS mastery targeting the Graduate Aptitude Test in Engineering 2028.",
+    description: "Intensive core CS Subjects Theory mastery as the subject comes in the semester courses and Previous Year Questions(PYQs) solving, targeting the Graduate Aptitude Test in Engineering 2028.",
     nextAction: "GATE_PREP_PIPELINE",
   },
 ];
