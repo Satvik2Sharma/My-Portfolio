@@ -130,6 +130,25 @@ export const ProjectCard = ({
                 ))}
               </div>
             </div>
+
+            <div className="flex gap-3 pt-4" onClick={(e) => e.stopPropagation()}>
+              {githubUrl && (
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button variant="secondary" className="w-full text-xs py-2 h-auto flex items-center justify-center gap-2 border border-white/10 hover:border-accent/30 hover:bg-accent/10 transition-colors">
+                    <Code2 size={14} />
+                    View Code
+                  </Button>
+                </a>
+              )}
+              {liveUrl && (
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button className="w-full text-xs py-2 h-auto flex items-center justify-center gap-2">
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </Button>
+                </a>
+              )}
+            </div>
           </div>
         </Card>
       </motion.div>
@@ -199,14 +218,17 @@ export const ProjectCard = ({
                   <div className="mt-auto flex gap-3">
                     {liveUrl && (
                       <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex-grow">
-                        <Button className="w-full">VIEW_LIVE</Button>
+                        <Button className="w-full flex gap-2 justify-center">
+                          <ExternalLink size={20} />
+                          <span className="text-xs font-mono">LIVE DEMO</span>
+                        </Button>
                       </a>
                     )}
                     {githubUrl && (
                       <a href={githubUrl} target="_blank" rel="noopener noreferrer" className={cn(!liveUrl && "flex-grow")}>
-                        <Button variant="secondary" className={cn("p-3", !liveUrl && "w-full flex gap-2 justify-center")}>
+                        <Button variant="secondary" className="w-full flex gap-2 justify-center">
                           <Code2 size={20} />
-                          {!liveUrl && <span className="text-xs font-mono">VIEW_CODE</span>}
+                          <span className="text-xs font-mono">VIEW CODE</span>
                         </Button>
                       </a>
                     )}

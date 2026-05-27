@@ -10,7 +10,8 @@ const FLAGSHIP_PROJECTS = [
     subtitle: "AI_EDTECH_PLATFORM // 01",
     description: "AI-powered student performance analysis platform designed to identify learning gaps using semantic similarity and logic-based scoring.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/SehpathiAIv2",
+    liveUrl: "https://sehpathi-a-iv2.vercel.app/",
     metrics: [
       { label: "NLP Engine", value: "Semantic", icon: <Brain size={14} /> },
       { label: "Frontend", value: "Next.js", icon: <Layout size={14} /> },
@@ -82,7 +83,8 @@ const FLAGSHIP_PROJECTS = [
     subtitle: "MACHINE_LEARNING // 02",
     description: "Machine learning web application for predicting laptop prices using engineered hardware and display features.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/laptop_price-predictor_full-ml-app_Task-2-5_ml-club",
+    liveUrl: "https://satvik-sharma-laptop-price-predictor.onrender.com",
     metrics: [
       { label: "R² Accuracy", value: "0.8913", icon: <Target size={14} /> },
       { label: "Dataset Size", value: "1.3k Recs", icon: <Database size={14} /> },

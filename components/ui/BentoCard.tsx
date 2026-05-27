@@ -121,7 +121,7 @@ export const BentoCard = ({
                    className="rounded-full px-6 bg-white/5 border-white/5 hover:border-accent/20"
                 >
                   <Code2 size={14} className="mr-2 text-accent" />
-                  Code
+                  View Code
                 </Button>
               </a>
             )}

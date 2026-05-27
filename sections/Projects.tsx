@@ -10,7 +10,8 @@ const PROJECTS = [
     title: "Sehpaathi AI",
     description: "AI-powered student performance analysis platform designed to identify learning gaps using semantic similarity and logic-based scoring.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/SehpathiAIv2",
+    liveUrl: "https://sehpathi-a-iv2.vercel.app/",
     techStack: [
       { name: "Next.js", icon: <Layout size={14} />, category: "UI" as const },
       { name: "FastAPI", icon: <Database size={14} />, category: "Backend" as const },
@@ -26,7 +27,8 @@ const PROJECTS = [
     title: "Laptop Price Predictor",
     description: "Machine learning web application for predicting laptop prices using engineered hardware and display features.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/laptop_price-predictor_full-ml-app_Task-2-5_ml-club",
+    liveUrl: "https://satvik-sharma-laptop-price-predictor.onrender.com",
     techStack: [
       { name: "Python", icon: <Code2 size={14} />, category: "Backend" as const },
       { name: "Flask", icon: <Database size={14} />, category: "Backend" as const },
@@ -43,7 +45,7 @@ const PROJECTS = [
     title: "Agro-Guardian",
     description: "Automated crop protection system using ESP32, ultrasonic sensors, and PIR modules for animal threat detection.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/Agro-Gaurdian",
     techStack: [
       { name: "ESP32", icon: <Cpu size={14} />, category: "Hardware" as const },
       { name: "C++", icon: <Code2 size={14} />, category: "Backend" as const },
@@ -59,7 +61,7 @@ const PROJECTS = [
     title: "OSPOT",
     description: "Console-based diagnostics tool for monitoring CPU, RAM, and disk usage in real time.",
     videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4",
-    githubUrl: "https://github.com/Satvik2Sharma",
+    githubUrl: "https://github.com/Satvik2Sharma/OSPOT",
     techStack: [
       { name: "C++", icon: <Code2 size={14} />, category: "Backend" as const },
       { name: "OS APIs", icon: <Cpu size={14} />, category: "Backend" as const },
