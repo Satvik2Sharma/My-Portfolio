@@ -44,7 +44,7 @@ const PROJECTS = [
   {
     title: "Agro-Guardian",
     description: "Automated crop protection system using ESP32, ultrasonic sensors, and PIR modules for animal threat detection.",
-    videoSrc: "https://assets.mixkit.co/videos/preview/mixkit-cloud-security-and-data-processing-animation-31634-large.mp4",
+    videoSrc: "/Agroguardian_demo.mp4",
     githubUrl: "https://github.com/Satvik2Sharma/Agro-Gaurdian",
     techStack: [
       { name: "ESP32", icon: <Cpu size={14} />, category: "Hardware" as const },

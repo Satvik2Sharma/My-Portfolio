@@ -72,7 +72,7 @@ export const TimelineItem = ({
                 "text-mono text-[10px] tracking-widest uppercase",
                 status === "current" ? "text-accent" : "text-foreground/40"
               )}>
-                {date} // {status.toUpperCase()}
+                {date} {"//"} {status.toUpperCase()}
               </span>
               {status === "future" && nextAction && (
                 <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] text-mono text-accent animate-pulse">

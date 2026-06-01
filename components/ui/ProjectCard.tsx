@@ -1,16 +1,11 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ExternalLink, 
   Code2, 
-  Play, 
-  Layers, 
-  Cpu, 
-  Layout, 
-  Clock,
-  ChevronRight
+  Play
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -26,6 +21,160 @@ interface ProjectCardProps {
   liveUrl?: string;
 }
 
+interface VideoWithDiagnosticsProps {
+  src: string;
+  muted?: boolean;
+  loop?: boolean;
+  playsInline?: boolean;
+  autoPlay?: boolean;
+  controls?: boolean;
+  className?: string;
+  videoRef?: React.RefObject<HTMLVideoElement | null>;
+}
+
+const VideoWithDiagnostics = ({
+  src,
+  muted,
+  loop,
+  playsInline,
+  autoPlay,
+  controls,
+  className,
+  videoRef: externalRef,
+}: VideoWithDiagnosticsProps) => {
+  const localRef = useRef<HTMLVideoElement>(null);
+  const ref = externalRef || localRef;
+  
+  const [error, setError] = useState<string | null>(null);
+  const [diagnostics, setDiagnostics] = useState<{
+    readyState: number;
+    networkState: number;
+    currentSrc: string;
+  } | null>(null);
+
+  const updateDiagnostics = useCallback(() => {
+    if (ref.current) {
+      setDiagnostics({
+        readyState: ref.current.readyState,
+        networkState: ref.current.networkState,
+        currentSrc: ref.current.currentSrc || src,
+      });
+    }
+  }, [src, ref]);
+
+  useEffect(() => {
+    updateDiagnostics();
+    const interval = setInterval(updateDiagnostics, 1000);
+    return () => clearInterval(interval);
+  }, [src, updateDiagnostics]);
+
+  const handleError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    const videoEl = ref.current;
+    let errMsg = "Unknown video loading error.";
+    if (videoEl && videoEl.error) {
+      switch (videoEl.error.code) {
+        case videoEl.error.MEDIA_ERR_ABORTED:
+          errMsg = "Video playback aborted by user.";
+          break;
+        case videoEl.error.MEDIA_ERR_NETWORK:
+          errMsg = "Network error caused video download to fail.";
+          break;
+        case videoEl.error.MEDIA_ERR_DECODE:
+          errMsg = "Video decoding failed. The format/codec is likely unsupported.";
+          break;
+        case videoEl.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+          errMsg = "Video source not supported (404, invalid path, or bad MIME type).";
+          break;
+      }
+    }
+    console.error(`[Video Diagnostics] Error loading video: "${src}". Details: ${errMsg}`, e);
+    setError(errMsg);
+    updateDiagnostics();
+  };
+
+  const handleLoadedData = () => {
+    console.log(`[Video Diagnostics] Data loaded for: "${src}"`);
+    setError(null);
+    updateDiagnostics();
+  };
+
+  const handleCanPlay = () => {
+    console.log(`[Video Diagnostics] Can play video: "${src}"`);
+    updateDiagnostics();
+  };
+
+  const getNetworkStateString = (state: number) => {
+    switch (state) {
+      case 0: return "0: NETWORK_EMPTY (No source/initial)";
+      case 1: return "1: NETWORK_IDLE (Idle/cached)";
+      case 2: return "2: NETWORK_LOADING (Downloading)";
+      case 3: return "3: NETWORK_NO_SOURCE (Source not found)";
+      default: return `${state}: Unknown`;
+    }
+  };
+
+  const getReadyStateString = (state: number) => {
+    switch (state) {
+      case 0: return "0: HAVE_NOTHING (No data)";
+      case 1: return "1: HAVE_METADATA (Metadata loaded)";
+      case 2: return "2: HAVE_CURRENT_DATA (Current frame only)";
+      case 3: return "3: HAVE_FUTURE_DATA (Can play a bit)";
+      case 4: return "4: HAVE_ENOUGH_DATA (Can play smoothly)";
+      default: return `${state}: Unknown`;
+    }
+  };
+
+  return (
+    <div className="relative w-full h-full group/video bg-black flex items-center justify-center">
+      <video
+        ref={ref}
+        src={src}
+        muted={muted}
+        loop={loop}
+        playsInline={playsInline}
+        autoPlay={autoPlay}
+        controls={controls}
+        className={className}
+        onError={handleError}
+        onLoadedData={handleLoadedData}
+        onCanPlay={handleCanPlay}
+        onLoadStart={updateDiagnostics}
+        onDurationChange={updateDiagnostics}
+        onPlay={updateDiagnostics}
+        onPlaying={updateDiagnostics}
+        onPause={updateDiagnostics}
+      />
+
+      {error && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/85 backdrop-blur-md p-6 text-center z-10 select-text">
+          <div className="p-3 bg-red-950/40 border border-red-500/30 rounded-full mb-3 text-red-400">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h4 className="text-red-400 font-bold mb-1 text-sm font-mono tracking-wider">VIDEO_LOAD_FAILED</h4>
+          <p className="text-xs text-foreground/80 max-w-md mb-4">{error}</p>
+          
+          {diagnostics && (
+            <div className="bg-black/60 border border-white/5 rounded-lg p-3 max-w-lg w-full text-left font-mono text-[10px] space-y-1.5 text-foreground/60">
+              <div className="text-accent border-b border-white/5 pb-1 mb-1 font-bold">DIAGNOSTICS:</div>
+              <div><span className="text-foreground/40">SRC:</span> {diagnostics.currentSrc}</div>
+              <div><span className="text-foreground/40">READY_STATE:</span> {getReadyStateString(diagnostics.readyState)}</div>
+              <div><span className="text-foreground/40">NETWORK_STATE:</span> {getNetworkStateString(diagnostics.networkState)}</div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {!error && diagnostics && (
+        <div className="absolute bottom-2 right-2 bg-black/75 backdrop-blur-sm border border-white/10 rounded px-2 py-1 text-[8px] font-mono text-foreground/40 pointer-events-none opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 z-10">
+          Ready: {diagnostics.readyState} | Net: {diagnostics.networkState}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const ProjectCard = ({ 
   title, 
   description, 
@@ -39,7 +188,6 @@ export const ProjectCard = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [activeMarker, setActiveMarker] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,13 +219,12 @@ export const ProjectCard = ({
           {/* Video Preview Container */}
           <div className="relative aspect-video overflow-hidden">
             {isVideo ? (
-              <video
-                ref={videoRef}
+              <VideoWithDiagnostics
+                videoRef={videoRef}
                 src={videoSrc}
                 muted
                 loop
                 playsInline
-                preload="none"
                 className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
               />
             ) : (
@@ -171,7 +318,7 @@ export const ProjectCard = ({
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <div className="lg:col-span-2 relative aspect-[16/10] bg-black">
                   {isVideo ? (
-                    <video
+                    <VideoWithDiagnostics
                       src={videoSrc}
                       autoPlay
                       controls

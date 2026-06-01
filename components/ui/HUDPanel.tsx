@@ -22,7 +22,11 @@ export const HUDPanel = ({ className }: HUDPanelProps) => {
   const rotateY = useTransform(springX, [-300, 300], [-10, 10]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       if (window.matchMedia("(pointer: coarse)").matches) return;
