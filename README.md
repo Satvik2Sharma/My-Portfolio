@@ -1,3 +1,7 @@
+# Satvik Sharma - Portfolio
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-satviksharma.tech-blue?style=for-the-badge&logo=vercel)](https://satviksharma.tech)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
